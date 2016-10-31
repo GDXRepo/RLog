@@ -31,6 +31,15 @@ At first, configure logging class (you can change this configuration at any time
 ```
 If displaying enabled then all messages which satisfy minimum log level requirement will be displayed in a system Xcode console with standard `NSLog()` function in current thread.
 
+Available log levels (sorted ascending by importance):
+
+* `RL_INFO` (equals to `RL_VERBOSE` and `RL_ALL`). Displays all messages. Aliases made just for convenience.
+* `RL_WARN` - warnings and higher levels.
+* `RL_ERROR` - errors and higher levels.
+* `RL_FATAL` - only critical errors. 
+
+Please note that these levels affects only displaying in a system console. For other purposes you should use filtering (described below).
+
 Next, there are a couple of useful macroses which will help you to log your events:
 
 ```objective-c
