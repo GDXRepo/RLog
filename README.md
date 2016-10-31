@@ -53,7 +53,7 @@ RLFATAL(format, ...); // logs critical error message
 
 ### Filtering
 
-All logs you are saving will be stored in memory. Sometimes you may need to extract stored messages for the further purposes.
+All logs you are saving will be stored in memory. Sometimes you may need to extract stored messages for a further purposes.
 
 The first method declared as:
 
