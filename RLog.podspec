@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "RLog"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "Simple & efficient logging library in Objective-C."
   s.homepage         = "https://github.com/GDXRepo/RLog"
   s.license          = { :type => "MIT", :file => "LICENSE" }

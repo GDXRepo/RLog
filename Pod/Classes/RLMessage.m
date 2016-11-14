@@ -58,7 +58,10 @@ static NSDateFormatter *dfPretty = nil;
                 [self stringFromLevel:self.level],
                 self.message];
     }
-    return [NSString stringWithFormat:@"%@ %@", [dfPretty stringFromDate:self.date], self.prettyFunction];
+    return [NSString stringWithFormat:@"%@ %@ [%@]",
+            [dfPretty stringFromDate:self.date],
+            self.prettyFunction,
+            [self stringFromLevel:self.level]];
 }
 
 - (NSString *)debugDescription {
