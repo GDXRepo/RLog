@@ -60,24 +60,26 @@
 }
 
 - (NSArray<RLMessage *> *)filterWithBlock:(RLFilterBlock)block {
-    NSMutableArray *list = nil;
-    
-    if (block) {
-        list = [NSMutableArray new];
+    @synchronized (self) {
+        NSMutableArray *list = nil;
         
-        for (RLMessage *msg in self.messages) {
-            if (block(msg)) {
-                [list addObject:msg];
+        if (block) {
+            list = [NSMutableArray new];
+            
+            for (RLMessage *msg in self.messages) {
+                if (block(msg) && msg) {
+                    [list addObject:msg];
+                }
             }
         }
+        else {
+            list = self.messages;
+        }
+        [list sortUsingComparator:^NSComparisonResult(RLMessage *obj1, RLMessage *obj2) {
+            return [obj1.date compare:obj2.date];
+        }];
+        return list;
     }
-    else {
-        list = self.messages;
-    }
-    [list sortUsingComparator:^NSComparisonResult(RLMessage *obj1, RLMessage *obj2) {
-        return [obj1.date compare:obj2.date];
-    }];
-    return list;
 }
 
 - (void)flushToFileAtPath:(NSString *)path usingFilter:(RLFilterBlock _Nullable)block {

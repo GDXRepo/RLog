@@ -66,7 +66,7 @@
         list = [NSMutableArray new];
         
         for (RLMessage *msg in self.messages) {
-            if (block(msg)) {
+            if (block(msg) && msg) {
                 [list addObject:msg];
             }
         }

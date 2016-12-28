@@ -32,7 +32,7 @@ static NSDateFormatter *dfPretty = nil;
 + (void)initialize {
     dfPretty = [NSDateFormatter new];
     [dfPretty setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    [dfPretty setDateFormat:@"YYYY-MM-dd HH:mm:ss.SSS Z"];
+    [dfPretty setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS Z"];
 }
 
 - (instancetype)initWithLevel:(RLMessageLevel)level message:(NSString *)message prettyFunction:(NSString *)function {
